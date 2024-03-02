@@ -1548,4 +1548,27 @@ mark {
 			}
 
 		}
+		
+		/* Style de la section "Gestion des Etudiants" */
+
+
+.main table th {
+    background-color: #ABC6EA;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    
+}
+
+/* Style des lignes de la table */
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Style des cellules de la première colonne */
+td:first-child {
+    font-weight: bold;
+}
+		
 

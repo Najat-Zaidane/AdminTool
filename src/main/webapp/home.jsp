@@ -47,9 +47,21 @@
 						<!-- gestion etu -->
 							<section id="second" class="main special">
 								<header class="major">
-									<h2>Gestion des Etudiants</h2>					
-								</header>							
+									<h2>Gestion des Etudiants</h2>
+								</header>
+                                <h2>Liste des Etudiants</h2>
+                                <table border="1" width="100%" >
+	                             <tr>
+		                        <th>ID</th>
+								<th>Nom</th>
+								<th>Prénom</th>
+								<th>Date Inscription</th>
+								<th>Situation Scolaire</th>
+								</tr>
 								
+								
+								
+							</table>												
 							</section>
 						<!--gestion depart-->
 						<section id="third" class="main special">
@@ -66,7 +78,9 @@
 									
 								</header>
 							</section>
+							
 					</div>
+					 <div> <br/></div>
 			</div>
 		<!-- Scripts -->	
 			<script src="main.js"></script>
