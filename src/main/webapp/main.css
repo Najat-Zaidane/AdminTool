@@ -10,8 +10,7 @@ pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside,
+form, label, legend,  caption,  article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
@@ -36,10 +35,7 @@ blockquote:before, blockquote:after, q:before, q:after {
 		content: none;
 	}
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+
 
 body {
 	-webkit-text-size-adjust: none;
@@ -1316,30 +1312,15 @@ mark {
 			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 		}
 
-		#main table tbody tr {
+		#main  tbody  {
 			border-color: #dddddd;
 		}
 
-			#main table tbody tr:nth-child(2n + 1) {
+			#main {
 				background-color: rgba(222, 222, 222, 0.25);
 			}
 
-		#main table th {
-			color: #636363;
-		}
-
-		#main table thead {
-			border-bottom-color: #dddddd;
-		}
-
-		#main table tfoot {
-			border-top-color: #dddddd;
-		}
-
-		#main table.alt tbody tr td {
-			border-color: #dddddd;
-		}
-
+	
 		#main .spotlight .image {
 			border-color: #dddddd;
 		}
@@ -1550,25 +1531,31 @@ mark {
 		}
 		
 		/* Style de la section "Gestion des Etudiants" */
-
-
+.main table {
+	
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 .main table th {
     background-color: #ABC6EA;
-    color: white;
     font-weight: bold;
     padding: 5px;
-    
+    color: #636363;
 }
-
 /* Style des lignes de la table */
 td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 8px;
+   border-color: #dddddd;
 }
 
 /* Style des cellules de la première colonne */
 td:first-child {
     font-weight: bold;
+    border-radius:5px
 }
+		
+
+		
 		
 

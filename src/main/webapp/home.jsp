@@ -59,9 +59,47 @@
 								<th>Situation Scolaire</th>
 								</tr>
 								
+								 <%
+								String url  = "jdbc:mysql://localhost:3306/fsj";
+								String user = "root";
+								String pwd  = "";
+								int number = 0; //nbre des etudiants
+								try {
+								Class.forName("com.mysql.cj.jdbc.Driver");
+								Connection con = DriverManager.getConnection(url, user, pwd);
+								PreparedStatement pst=con.prepareStatement("SELECT * FROM etudiants");
+								ResultSet rs = pst.executeQuery();
+								while(rs.next()){
+								%>
+								
+								<tr>
+									<td><%=rs.getInt(1) %></td>
+									<td><%=rs.getString(2) %></td>
+									<td><%=rs.getString(3) %></td>
+									<td><%=rs.getString(4) %></td>
+									<td><%=rs.getString(5) %></td>
+									<td><a href="Delete?id=<%=rs.getInt(1) %>">Supprimer</a></td>
+								</tr>
+			
+							
+								<%
+								}
+								pst=con.prepareStatement("SELECT COUNT(*) FROM etudiants");
+								rs = pst.executeQuery();
+								rs.next();
+								number = rs.getInt(1);
+								rs.close();
+								pst.close();
+								con.close();
+							}catch(Exception e) {
+								System.out.print(e);
+							}
+							%>
 								
 								
-							</table>												
+							</table>	
+							Nomber des etudiants : <%=number %><br>
+							<a href="ajouter.jsp">Ajouter un etudiant</a>											
 							</section>
 						<!--gestion depart-->
 						<section id="third" class="main special">
