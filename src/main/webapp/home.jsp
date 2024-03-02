@@ -55,10 +55,10 @@
 		                        <th>ID</th>
 								<th>Nom</th>
 								<th>Prénom</th>
-								<th>Date Inscription</th>
 								<th>Situation Scolaire</th>
+								<th>Date Inscription</th>		
 								</tr>
-								
+						
 								 <%
 								String url  = "jdbc:mysql://localhost:3306/fsj";
 								String user = "root";
@@ -78,7 +78,7 @@
 									<td><%=rs.getString(3) %></td>
 									<td><%=rs.getString(4) %></td>
 									<td><%=rs.getString(5) %></td>
-									<td><a href="Delete?id=<%=rs.getInt(1) %>">Supprimer</a></td>
+								
 								</tr>
 			
 							
@@ -95,26 +95,177 @@
 								System.out.print(e);
 							}
 							%>
-								
-								
+
 							</table>	
-							Nomber des etudiants : <%=number %><br>
-							<a href="ajouter.jsp">Ajouter un etudiant</a>											
+							<br><br>
+					<!-- ajouter etudiant -->	
+					       <div id="ajout" align="center">
+					 				<h2>Ajouter un Etudiant</h2>
+					 				<form method="POST" action="Ajouter">
+									<table border="1">
+										<tr>
+											<td>Nom</td>
+											<td><input type="text" name="nom" required></td>
+										</tr>
+										<tr>
+											<td>Prénom</td>
+											<td><input type="text" name="prenom" required></td>
+										</tr>
+										<tr>
+											<td>Date Inscription</td>
+											<td><input type="date" name="date" required></td>
+										</tr>
+										<tr>
+											<td>Situation Scolaire</td>
+											<td>
+												<input type="radio" name="situation" value="Inscrit" checked> Inscrit
+												<input type="radio" name="situation" value="Non-inscrit"> Non-Inscrit
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="center">
+												<input type="submit" value="Ajouter">
+												<input type="reset" value="Rétablir">
+											</td>
+										</tr>
+									</table>
+									</form>
+									
+								</div>						
 							</section>
+							
 						<!--gestion depart-->
 						<section id="third" class="main special">
 								<header class="major">
 									<h2>Gestion des Départements</h2>
 								</header>
+								<!-- liste des départyements -->
+								
+								<h2>Liste des Départements</h2>
+                                <table border="1" width="100%" >
+	                             <tr>
+		                        <th>ID</th>
+								<th>Nom</th>	
+								<th>Evénements à Venir </th>
+								<th>Demandes Reçues</th>
+								</tr>
+								 <%
+								try {
+								Class.forName("com.mysql.cj.jdbc.Driver");
+								Connection con = DriverManager.getConnection(url, user, pwd);
+								PreparedStatement pst=con.prepareStatement("SELECT * FROM departements");
+								ResultSet rs = pst.executeQuery();
+								while(rs.next()){
+								%>
+								
+								<tr>
+									<td><%=rs.getInt(1) %></td>
+									<td><%=rs.getString(2) %></td>
+									<td><%=rs.getString(3) %></td>
+									<td><%=rs.getString(4) %></td>
+								</tr>
+			
+							
+								<%
+								}
+								pst=con.prepareStatement("SELECT COUNT(*) FROM etudiants");
+								rs = pst.executeQuery();
+								rs.next();
+								number = rs.getInt(1);
+								rs.close();
+								pst.close();
+								con.close();
+							}catch(Exception e) {
+								System.out.print(e);
+							}
+							%>
+							</table>	
+							<br><br>
+							<!-- gerer départements -->
+
 								
 							</section>				
-
 						<!-- Gestion Personnel -->
 							<section id="cta" class="main special">
 								<header class="major">
 									<h2>Gestion du Personnel</h2>
-									
 								</header>
+							<!-- liste du personnel -->
+								<h2>Liste du Personnel</h2>
+                                <table border="1" width="100%" >
+	                             <tr>
+		                        <th>ID</th>
+								<th>Nom</th>	
+								<th>Prénom</th>
+								<th>Contact ou Emails</th>
+								<th>Role</th>
+								</tr>
+								 <%
+								try {
+								Class.forName("com.mysql.cj.jdbc.Driver");
+								Connection con = DriverManager.getConnection(url, user, pwd);
+								PreparedStatement pst=con.prepareStatement("SELECT * FROM utilisateurs");
+								ResultSet rs = pst.executeQuery();
+								while(rs.next()){
+								%>
+								
+								<tr>
+									<td><%=rs.getInt(1) %></td>
+									<td><%=rs.getString(2) %></td>
+									<td><%=rs.getString(3) %></td>
+									<td><%=rs.getString(4) %></td>
+									<td><%=rs.getString(5) %></td>
+								</tr>
+								<%
+								}
+								rs = pst.executeQuery();
+								rs.next();
+								number = rs.getInt(1);
+								rs.close();
+								pst.close();
+								con.close();
+							}catch(Exception e) {
+								System.out.print(e);
+							}
+							%>
+							</table>	
+							<br><br>
+							<!-- Ajouter personnel -->
+							<div id="ajout" align="center">
+					 				<h2>Ajouter un Membre du Peronnel</h2>
+					 				<form method="POST" action="Ajouter2">
+									<table border="1">
+										<tr>
+											<td>Nom</td>
+											<td><input type="text" name="nom" required></td>
+										</tr>
+										<tr>
+											<td>Prénom</td>
+											<td><input type="text" name="prenom" required></td>
+										</tr>
+										<tr>
+											<td>Contact / E-mail</td>
+											<td><input type="text" name="email" required></td>
+										</tr>
+										<tr>
+											<td>Role</td>
+											<td>
+												<input type="text" name="role" required> 
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="center">
+												<input type="submit" value="Ajouter">
+												<input type="reset" value="Rétablir">
+											</td>
+										</tr>
+									</table>
+									</form>
+									
+								</div>		
+							
+							
+							
 							</section>
 							
 					</div>

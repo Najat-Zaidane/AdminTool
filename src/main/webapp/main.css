@@ -1554,6 +1554,11 @@ td:first-child {
     font-weight: bold;
     border-radius:5px
 }
+
+.ajout {
+	align-items:center;
+	justify-content:center
+}
 		
 
 		
