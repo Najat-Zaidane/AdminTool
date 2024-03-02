@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,6 +21,8 @@ public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		
 		// Récupération des données du formulaire
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
@@ -47,6 +49,8 @@ public class SignUp extends HttpServlet {
 
             int rowsAffected = pst.executeUpdate();
             if (rowsAffected > 0) {
+            	session.setAttribute("nom", nom);
+            	session.setAttribute("prenom", prenom);
                 response.sendRedirect("auth.jsp");
             } else {
                 response.sendRedirect("signup.jsp?error=true");

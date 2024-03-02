@@ -2,14 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ page language="java"%>
 <%@ page import="java.sql.*"%>
-<%
-String email = "";
- if(session.getAttribute("email")!=null){
-	 email = session.getAttribute("email").toString();
- }else{
-	 response.sendRedirect("auth.jsp");
- }
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +36,7 @@ String email = "";
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2> Bienvenue</h2>
+											<h2> Bienvenue </h2>
 										</header>
 										<p>Nous sommes heureux de vous accueillir dans notre espace dédié aux administrateurs, conçu pour simplifier et optimiser la gestion de notre établissement. Grâce à cet outil, vous aurez accès à un ensemble de fonctionnalités vous permettant d'administrer efficacement les différents aspects de la vie universitaire.</p>
 									</div>
@@ -56,21 +49,21 @@ String email = "";
 								<header class="major">
 									<h2>Gestion des Etudiants</h2>					
 								</header>							
-								<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
+								
 							</section>
 						<!--gestion depart-->
 						<section id="third" class="main special">
 								<header class="major">
 									<h2>Gestion des Départements</h2>
 								</header>
-							<p>Basic question for the user while lookign for or setting up the event</p>		
+								
 							</section>				
 
 						<!-- Gestion Personnel -->
 							<section id="cta" class="main special">
 								<header class="major">
 									<h2>Gestion du Personnel</h2>
-									<p>Are you ready to make your next event unforgettable? Look no further than Eventify!</p>
+									
 								</header>
 							</section>
 					</div>
