@@ -12,3 +12,4 @@ L'application sera développée en Java et utilisera JEE et des design patterns.
 La base de données MySQL sera utilisée pour stocker les données.
 
 L'application sera accessible via une interface web.
+L'application a des implémentations des divers designs patterns (Factory , Singleton, Factory Method ...)
